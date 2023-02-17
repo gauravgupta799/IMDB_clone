@@ -2,13 +2,13 @@ import React,{useState, useEffect} from 'react';
 import "./movielist.css";
 import {useParams} from "react-router-dom";
 import Cards from '../Cards/Cards';
+import {url ,api_key} from "../../config";
 
-// const url ="https://api.themoviedb.org/3/movie/popular?api_key=963dca4aeee856dc0a877af227a9340b"
 
 const MovieList = () => {
     const [movieList, setMovieList] = useState([]);
     const {type} = useParams();
-    console.log(type)
+    // console.log(type)
 
     useEffect(()=>{
         getMovieData();
@@ -19,7 +19,7 @@ const MovieList = () => {
     },[type])
 
     const getMovieData = async()=>{
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${type ? type : "popular"}?api_key=963dca4aeee856dc0a877af227a9340b`);
+        const res = await fetch(`${url}/${type ? type : "popular"}?api_key=${api_key}`);
         const data = await res.json();
         setMovieList(data.results)
     }

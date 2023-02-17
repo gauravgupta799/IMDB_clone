@@ -4,23 +4,22 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import {Link} from "react-router-dom";
 import { AiFillStar} from 'react-icons/ai'
+import {url ,api_key} from "../../config";
 import MovieList from '../../components/MovieList/MovieList';
 
-const url ="https://api.themoviedb.org/3/movie/popular?api_key=963dca4aeee856dc0a877af227a9340b"
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         async function fetchMovies(){
-            const res = await fetch(url);
+            const res = await fetch(`${url}/popular?api_key=${api_key}`);
             const data = await res.json();
             setMovies(data.results)
         }
         fetchMovies();
     },[])
 
-    // console.log(movies);
 
   return (
     <div>
