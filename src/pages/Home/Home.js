@@ -32,10 +32,10 @@ const Home = () => {
       >
       {movies.map((movie) => {
         return(
-          <>
-            <Link to={`/movie/${movie.id}`}>
+          <div key={movie.id}>
+            <Link to={`/movie/${movie?.id}`}>
               <div className="posterImage">
-                <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="movieImg" />
+                <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt="movieImg" />
               </div>
               <div className="posterImage_overlay">
                   <div className="posterImage_title">{movie?.original_title}</div>
@@ -52,7 +52,7 @@ const Home = () => {
                   </div>
               </div>
             </Link>
-          </>
+          </div>
         )
       })
       }

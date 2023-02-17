@@ -30,7 +30,7 @@ const MovieList = () => {
         </h2>
         <div className="list_cards">
             {movieList?.map((movie)=>(
-                <Cards movie={movie}/>
+                <Cards movie={movie} key ={movie.id}/>
             ))}
         </div>
     </div>
