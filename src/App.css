@@ -1,0 +1,12 @@
+.App{
+  background-color:black;
+  color:white;
+  font-family:sans-serif;
+}
+a{
+  color:white;
+  text-decoration:none;
+}
+li{
+  list-style:none;
+}
